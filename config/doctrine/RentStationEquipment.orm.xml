@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="App\Domain\RentStationEquipment" table="rent_station_equipment" >
+    <indexes>
+      <index name="rent_station_equipment_rent_id_fk" columns="rent_id"/>
+      <index name="rent_station_equipment_station_equipments_id_fk" columns="station_equipment_id"/>
+    </indexes>
+    <lifecycle-callbacks>
+      <lifecycle-callback type="prePersist" method="checkCount"/>
+    </lifecycle-callbacks>
+    <unique-constraints>
+      <unique-constraint name="rent_station_equipment_id_uindex" columns="id"/>
+    </unique-constraints>
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <many-to-one field="rent" target-entity="Rent" fetch="LAZY">
+      <join-columns>
+        <join-column name="rent_id" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="stationEquipment" target-entity="StationEquipments" fetch="LAZY">
+      <join-columns>
+        <join-column name="station_equipment_id" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>
