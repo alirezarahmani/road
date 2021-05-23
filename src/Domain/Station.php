@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace App\Domain;
 
@@ -9,20 +9,11 @@ namespace App\Domain;
  */
 class Station
 {
-    /**
-     * Station constructor.
-     * @param int $id
-     * @param string $name
-     * @param string $lat
-     * @param string $lon
-     * @param bool $active
-     */
-    public function __construct(private int $id,
-                                private string $name,
-                                private string $lat = '0.0',
-                                private string $lon = '0.0',
-                                private bool $active = true)
-    {}
+    private int $id;
+    private string $name;
+    private string $lat = '0.0';
+    private string $lon = '0.0';
+    private bool $active = true;
 
     /**
      * @return string

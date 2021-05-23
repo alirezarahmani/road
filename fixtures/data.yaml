@@ -1,0 +1,33 @@
+parameters:
+  profileArray: ['blanket', 'toilet', 'chair', 'light', 'knife', 'pillow', 'lamp', 'gas']
+  model: ['benz', 'toyota']
+App\Domain\Station:
+  station{1..100}:
+    name: <city()>
+    active: 1
+App\Domain\Equipment:
+  equipment{1..100}:
+    name: <randomElement($profileArray)>
+    status: 1
+App\Domain\Van:
+  van{1..100}:
+    model: <randomElement($model)>
+    active: 1
+App\Domain\StationEquipments:
+  sequipment{1..100}:
+    equipment: '@equipment*'
+    station: '@station*'
+    stock: <numberBetween(200, 800)>
+App\Domain\Rent:
+  rent{1..100}:
+    startAt: <dateTimeBetween("-100 days", "now")>
+    endAt: <dateTimeBetween("+1 days", "+100 days")>
+    startStation: '@station<numberBetween(1, 49)>'
+    endStation: '@station<numberBetween(50, 99)>'
+    van: '@van*'
+App\Domain\RentStationEquipment:
+  tationEquipment{1..10}:
+    rent: '@rent*'
+    stationEquipment: '@sequipment<numberBetween(1, 49)>'
+    stationEquipmentDestination: '@sequipment<numberBetween(50, 99)>'
+    count: 2

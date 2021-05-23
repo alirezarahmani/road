@@ -1,0 +1,9 @@
+parameters:
+    level: max
+    checkGenericClassInNonGenericObjectType: false
+    checkMissingIterableValueType: false
+    inferPrivatePropertyTypeFromConstructor: true
+    parallel:
+    	processTimeout: 300.00
+    paths:
+        - %currentWorkingDirectory%/src/

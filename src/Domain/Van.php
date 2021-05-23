@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace App\Domain;
 
@@ -9,17 +9,9 @@ namespace App\Domain;
  */
 class Van
 {
-    /**
-     * Van constructor.
-     * @param string|null $model
-     * @param bool $active
-     * @param int $id
-     */
-    public function __construct(private int $id,
-                                private ?string $model,
-                                private bool $active = true
-                                )
-    {}
+    private int $id;
+    private ?string $model;
+    private bool $active = true;
 
     /**
      * @return string|null

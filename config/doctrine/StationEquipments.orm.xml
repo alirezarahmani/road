@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
   <entity name="App\Domain\StationEquipments" table="station_equipments" repository-class="App\Repositories\StationEquipmentRepository">
-    <unique-constraints>
-      <unique-constraint name="UNIQ_E58B68C621BDB235" columns="station_id"/>
-      <unique-constraint name="UNIQ_E58B68C6517FE9FE" columns="equipment_id"/>
-    </unique-constraints>
     <id name="id" type="integer" column="id">
       <generator strategy="IDENTITY"/>
     </id>

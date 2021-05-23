@@ -1,0 +1,27 @@
+version: '3'
+services:
+  worker:
+    build: ./DockerFiles/Worker
+    ports:
+      - 0.0.0.0:8000:80
+    depends_on:
+      - mysql
+      - elasticsearch
+    links:
+      - mysql
+      - elasticsearch
+    volumes:
+      - ${LOCAL_DEV_DIR}:/var/www
+  mysql:
+    build: ./DockerFiles/Mysql
+    ports:
+      - 0.0.0.0:3309:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.10.2
+    environment:
+      - "discovery.type=single-node"
+    ports:
+      - 9200:9200
+      - 9300:9300

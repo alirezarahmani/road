@@ -3,11 +3,6 @@ declare(strict_types=1);
 
 namespace App\Domain;
 
-use App\Domain\Exceptions\InvalidEquipmentException;
-use App\Service\Denormalizer;
-use Doctrine\Common\Collections\ArrayCollection;
-use Symfony\Component\Serializer\Serializer;
-
 /**
  * Class Rent
  * @package App\Domain
@@ -45,9 +40,9 @@ class Rent
     }
 
     /**
-     * @return \DateTimeInterface|null
+     * @return \DateTimeInterface
      */
-    public function getEndAt(): ?\DateTimeInterface
+    public function getEndAt(): \DateTimeInterface
     {
         return $this->endAt;
     }
@@ -127,5 +122,4 @@ class Rent
 
         return $this;
     }
-
 }

@@ -1,12 +1,20 @@
 <?php
+declare(strict_types=1);
 
 namespace App\Domain;
 
+use Doctrine\ORM\Event\LifecycleEventArgs;
+
+/**
+ * Class RentStationEquipment
+ * @package App\Domain
+ */
 class RentStationEquipment
 {
     private int $id;
     private Rent $rent;
     private StationEquipments $stationEquipment;
+    private StationEquipments $stationEquipmentDestination;
     private int $count;
 
     public function getId(): ?int
@@ -14,7 +22,7 @@ class RentStationEquipment
         return $this->id;
     }
 
-    public function getRent(): ?Rent
+    public function getRent(): Rent
     {
         return $this->rent;
     }
@@ -26,7 +34,23 @@ class RentStationEquipment
         return $this;
     }
 
-    public function getStationEquipment(): ?StationEquipments
+    /**
+     * @return StationEquipments
+     */
+    public function getStationEquipmentDestination(): StationEquipments
+    {
+        return $this->stationEquipmentDestination;
+    }
+
+    /**
+     * @param StationEquipments $stationEquipmentDestination
+     */
+    public function setStationEquipmentDestination(StationEquipments $stationEquipmentDestination): void
+    {
+        $this->stationEquipmentDestination = $stationEquipmentDestination;
+    }
+
+    public function getStationEquipment(): StationEquipments
     {
         return $this->stationEquipment;
     }
@@ -53,7 +77,7 @@ class RentStationEquipment
         $this->count = $count;
     }
 
-    public function checkCount($event)
+    public function checkCount(LifecycleEventArgs $event): void
     {
         /** @var RentStationEquipment $entity */
         $entity = $event->getEntity();

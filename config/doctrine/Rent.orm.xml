@@ -5,9 +5,6 @@
       <index name="IDX_2784DCC2FF5EABB" columns="end_station_id"/>
       <index name="IDX_2784DCC53721DCB" columns="start_station_id"/>
     </indexes>
-    <unique-constraints>
-      <unique-constraint name="UNIQ_2784DCC8A128D90" columns="van_id"/>
-    </unique-constraints>
     <id name="id" type="integer" column="id">
       <generator strategy="IDENTITY"/>
     </id>

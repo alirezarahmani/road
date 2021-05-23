@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace App\Domain;
 
@@ -9,18 +9,10 @@ namespace App\Domain;
  */
 class StationEquipments
 {
-    /**
-     * StationEquipments constructor.
-     * @param int $id
-     * @param int $stock
-     * @param Station $station
-     * @param Equipment $equipment
-     */
-    public function __construct(private int $id,
-                                private int $stock,
-                                private Station $station,
-                                private Equipment $equipment)
-    {}
+    private int $id;
+    private int $stock;
+    private Station $station;
+    private Equipment $equipment;
 
     public function getStock(): int
     {
@@ -64,9 +56,9 @@ class StationEquipments
     }
 
     /**
-     * @return Equipment|null
+     * @return Equipment
      */
-    public function getEquipment(): ?Equipment
+    public function getEquipment(): Equipment
     {
         return $this->equipment;
     }

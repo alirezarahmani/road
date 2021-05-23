@@ -11,7 +11,6 @@ class Equipment
 {
     private int $id;
     private string $name;
-    private int $stock;
     private bool $status = true;
 
 
@@ -35,18 +34,6 @@ class Equipment
     public function setStatus(bool $status): self
     {
         $this->status = $status;
-
-        return $this;
-    }
-
-    public function getStock(): int
-    {
-        return $this->stock;
-    }
-
-    public function setStock(int $stock): self
-    {
-        $this->stock = $stock;
 
         return $this;
     }
