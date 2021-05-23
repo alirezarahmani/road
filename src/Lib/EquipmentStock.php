@@ -62,13 +62,6 @@ class EquipmentStock
         int $countAll,
         callable $calculate
     ): void {
-//        $results = $this->storage->searchAll();
-//
-//        foreach ($results['hits']['hits'] as $r)
-//        {
-//            $this->storage->remove($r['_id']);exit;
-//        }
-//        exit;
 
         $result = $this->storage->search($date, $station->getName(), $this->equipment->getName());
         if (isset($result['hits']['hits']) && count($result['hits']['hits']) > 0) {
